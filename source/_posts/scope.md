@@ -1,1 +1,0 @@
-(Understanding Scope in JavaScript)[https://scotch.io/tutorials/understanding-scope-in-javascript?utm_source=mybridge&utm_medium=email&utm_campaign=read_more#changing-context-with-call-apply-and-bind]
