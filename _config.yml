@@ -7,14 +7,14 @@ title: 花森煜米地
 subtitle: 欢迎来到花森煜米的博客
 description: 不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。
 keywords: Javascript、前端开发
-author: Jecyu
+author: 花森煜米
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://jecyu.github.io/blog
-root: /
+root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
