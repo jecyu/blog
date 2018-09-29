@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://jecyu.github.io/blog">
   <title>网站线上部署 | 花森煜米地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文要实现一个前后端分离的网站项目的线上部署，网站预览地址，源码地址，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。  一、 连接远程服务器, 配置 Node.js 环境连接服务器在这里花森煜米的本地系统是 win10。 配合使用命令行工具 cmder">
-<meta name="keywords" content="Linux，Node.js，Mongodb，Nginx">
+  <meta name="description" content="本文要实现一个前后端分离的网站项目的线上部署，网站预览地址，源码地址，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。">
+<meta name="keywords" content="Linux,Node.js,Mongodb,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网站线上部署">
 <meta property="og:url" content="https://jecyu.github.io/blog/2018/04/30/2018-04-30-Website-Deployment/index.html">
 <meta property="og:site_name" content="花森煜米地">
-<meta property="og:description" content="本文要实现一个前后端分离的网站项目的线上部署，网站预览地址，源码地址，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。  一、 连接远程服务器, 配置 Node.js 环境连接服务器在这里花森煜米的本地系统是 win10。 配合使用命令行工具 cmder">
+<meta property="og:description" content="本文要实现一个前后端分离的网站项目的线上部署，网站预览地址，源码地址，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://p1s28g7i1.bkt.clouddn.com/fz3_win_main.png">
 <meta property="og:image" content="http://p1s28g7i1.bkt.clouddn.com/node_diagram.png">
-<meta property="og:updated_time" content="2018-09-26T15:47:03.057Z">
+<meta property="og:updated_time" content="2018-09-28T06:20:22.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网站线上部署">
-<meta name="twitter:description" content="本文要实现一个前后端分离的网站项目的线上部署，网站预览地址，源码地址，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。  一、 连接远程服务器, 配置 Node.js 环境连接服务器在这里花森煜米的本地系统是 win10。 配合使用命令行工具 cmder">
+<meta name="twitter:description" content="本文要实现一个前后端分离的网站项目的线上部署，网站预览地址，源码地址，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。">
 <meta name="twitter:image" content="http://p1s28g7i1.bkt.clouddn.com/fz3_win_main.png">
   
     <link rel="alternative" href="/atom.xml" title="花森煜米地" type="application/atom+xml">
@@ -51,13 +51,13 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/blog/" class="profilepic">
-			<img src="http://ww1.sinaimg.cn/large/006i3LGmgy1fmuk6kj5i1j30440443z0.jpg" class="js-avatar">
+			<img src="https://avatars0.githubusercontent.com/u/28448589?s=460&amp;v=4" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/blog/">花森煜米</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">欢迎来到花森煜米的博客</p>
+		<p class="header-subtitle">说学逗唱，混摄绘</p>
 		
 
 		<nav class="header-menu">
@@ -65,7 +65,7 @@
 			
 				<li><a href="/blog/">主页</a></li>
 	        
-				<li><a href="/blog/tags/随笔/">随笔</a></li>
+				<li><a href="/blog/archives/">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -107,13 +107,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://ww1.sinaimg.cn/large/006i3LGmgy1fmuk6kj5i1j30440443z0.jpg" class="js-avatar">
+				<img src="https://avatars0.githubusercontent.com/u/28448589?s=460&amp;v=4" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">花森煜米</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>欢迎来到花森煜米的博客<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>说学逗唱，混摄绘<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -139,7 +139,7 @@
 				
 					<li style="width: 50%"><a href="/blog/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/blog/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/blog/archives/">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -174,10 +174,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文要实现一个前后端分离的网站项目的线上部署，<a href="ebio.linjiyu.com">网站预览地址</a>，<a href="https://github.com/Jecyu/E-Biotech-website" target="_blank" rel="noopener">源码地址</a>，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。 </p>
+        <p>本文要实现一个前后端分离的网站项目的线上部署，<a href="ebio.linjiyu.com">网站预览地址</a>，<a href="https://github.com/Jecyu/E-Biotech-website" target="_blank" rel="noopener">源码地址</a>，在部署的过程踩了不少坑，现在总结实现步骤如下，文章涉及到 local$ 和 remote$ 等标识符为区分本地环境和远程服务器所用，后端配置 Node.js + Mongodb + Nginx。</p>
+<a id="more"></a>
 <h2 id="一、-连接远程服务器-配置-Node-js-环境"><a href="#一、-连接远程服务器-配置-Node-js-环境" class="headerlink" title="一、 连接远程服务器, 配置 Node.js 环境"></a>一、 连接远程服务器, 配置 Node.js 环境</h2><h3 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h3><p>在这里花森煜米的本地系统是 win10。 配合使用命令行工具 <a href="http://cmder.net/" target="_blank" rel="noopener">cmder</a>，给予你在 window 下的 Linux 环境。然后通过 ssh 进行连接远程服务器 CentOS 7（这里是你自己的服务器。) SSH Client 的基本用法如下：</p>
 <pre><code>ssh user@remote -p port // 执行该行命令后，会提示输入你的用户密码
-user@remote&apos;s password: 
+user@remote&apos;s password:
 </code></pre><p>成功连接服务器后，这里是 linux 目录结构。搞清楚每个目录的作用，把你自定义的文件放到最合适的地方。</p>
 <table>
 <thead>
@@ -265,7 +266,7 @@ user@remote&apos;s password:
 </tr>
 </tbody>
 </table>
-<h3 id="配置-Node-js"><a href="#配置-Node-js" class="headerlink" title="配置 Node.js"></a>配置 Node.js</h3><p>使用 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> 不仅仅是实现后端应用，还实现了整个 HTTP 服务器，服务器可以监听客户端的请求，类似 Apache、Nginx等 HTTP 服务器。首先把 Node.js 安装到 /usr/local 目录下，然后分别为 <code>node</code> 和 <code>npm</code> 命令建立软连接，以便在任何地方都可以调用它们。</p>
+<h3 id="配置-Node-js"><a href="#配置-Node-js" class="headerlink" title="配置 Node.js"></a>配置 Node.js</h3><p>使用 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> 不仅仅是实现后端应用，还实现了整个 HTTP 服务器，服务器可以监听客户端的请求，类似 Apache、Nginx 等 HTTP 服务器。首先把 Node.js 安装到 /usr/local 目录下，然后分别为 <code>node</code> 和 <code>npm</code> 命令建立软连接，以便在任何地方都可以调用它们。</p>
 <pre><code># 这里安装的是当前 node.js 的稳定版本
 wget https://npm.taobao.org/mirrors/node/v8.11.1-linux-x64.tar.xz
 # 两次解压
@@ -288,12 +289,12 @@ logappend=true
 journal=true
 quiet=true
 port=27017
-</code></pre><h3 id="保持数据库一直运行"><a href="#保持数据库一直运行" class="headerlink" title="保持数据库一直运行"></a>保持数据库一直运行</h3><p>保持程序在后台运行，可以通过系统服务 <code>systemctl start mongod -f /mongodb/etc/mongo.conf</code>  来实现，也可以通过把程序保存为守护(daemon)进程 <code>mongod --fork /mongodb/etc/mongo.conf</code>。数据库开启后，通过初始化设置后（可以看<a href="https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/#step-add-the-mongodb-repository-in-centos" target="_blank" rel="noopener">这里</a>），可以在本地使用客户端如 <a href="https://nosqlbooster.com/" target="_blank" rel="noopener">NoSQLBooster for MongoDB</a>  来连接远程服务器的数据库,注意的是如果要使用客户端来连接，需要在 /etc/mongo.conf 更改 <code>bind_ip = 0.0.0.0</code>, 默认是 <code>bind_ip = 127.0.0.1</code> 只允许在服务器主机进行数据库连接。</p>
+</code></pre><h3 id="保持数据库一直运行"><a href="#保持数据库一直运行" class="headerlink" title="保持数据库一直运行"></a>保持数据库一直运行</h3><p>保持程序在后台运行，可以通过系统服务 <code>systemctl start mongod -f /mongodb/etc/mongo.conf</code> 来实现，也可以通过把程序保存为守护(daemon)进程 <code>mongod --fork /mongodb/etc/mongo.conf</code>。数据库开启后，通过初始化设置后（可以看<a href="https://www.howtoforge.com/tutorial/how-to-install-and-configure-mongodb-on-centos-7/#step-add-the-mongodb-repository-in-centos" target="_blank" rel="noopener">这里</a>），可以在本地使用客户端如 <a href="https://nosqlbooster.com/" target="_blank" rel="noopener">NoSQLBooster for MongoDB</a> 来连接远程服务器的数据库,注意的是如果要使用客户端来连接，需要在 /etc/mongo.conf 更改 <code>bind_ip = 0.0.0.0</code>, 默认是 <code>bind_ip = 127.0.0.1</code> 只允许在服务器主机进行数据库连接。</p>
 <h2 id="三、-上传网站项目文件至服务器"><a href="#三、-上传网站项目文件至服务器" class="headerlink" title="三、 上传网站项目文件至服务器"></a>三、 上传网站项目文件至服务器</h2><p>一般上传文件到服务器，可以通过 scp 协议上传，也可以通过支持 SFTP 协议的客户端图形化工具如 <a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla</a> 上传。</p>
 <h3 id="通过-scp-协议上传"><a href="#通过-scp-协议上传" class="headerlink" title="通过 scp 协议上传"></a>通过 scp 协议上传</h3><pre><code># 把本地的文件上传到服务器，如果上传的是文件夹，则在路径前加 `-r`。
 scp -P port (-r) /path/to/local/file user@remote$_address:/path/to/remote/file
 </code></pre><h3 id="通过-SFTP-协议上传"><a href="#通过-SFTP-协议上传" class="headerlink" title="通过 SFTP 协议上传"></a>通过 SFTP 协议上传</h3><p>使用 SFTP 可以通过用户名和密码连接服务器，也可以使用公钥无密码连接。<br><img src="http://p1s28g7i1.bkt.clouddn.com/fz3_win_main.png" alt="FileZlip"></p>
-<p>对于前后端分离的项目，前端项目文件建议放在 <code>/var/www/myapp.com</code> 下，而后端项目文件花森煜米放置在根目录 <code>/workspace/myapp-backend</code> 下，然后可以使用 <a href="https://www.npmjs.com/package/pm2" target="_blank" rel="noopener">PM2</a> 工具后台运行 Node.js 服务器。以上均是手动部署，一个项目会经过不断的版本迭代更新，为避免人工部署的出错，我们一般编写自动化部署脚本，从 github 上 pull 最新的项目文件，完成自动化部署，可参见 <a href="https://github.com/visionmedia/deploy" target="_blank" rel="noopener">https://github.com/visionmedia/deploy</a>。 </p>
+<p>对于前后端分离的项目，前端项目文件建议放在 <code>/var/www/myapp.com</code> 下，而后端项目文件花森煜米放置在根目录 <code>/workspace/myapp-backend</code> 下，然后可以使用 <a href="https://www.npmjs.com/package/pm2" target="_blank" rel="noopener">PM2</a> 工具后台运行 Node.js 服务器。以上均是手动部署，一个项目会经过不断的版本迭代更新，为避免人工部署的出错，我们一般编写自动化部署脚本，从 github 上 pull 最新的项目文件，完成自动化部署，可参见 <a href="https://github.com/visionmedia/deploy" target="_blank" rel="noopener">https://github.com/visionmedia/deploy</a>。</p>
 <h2 id="四、-使用-Nginx-配置域名和代理请求"><a href="#四、-使用-Nginx-配置域名和代理请求" class="headerlink" title="四、 使用 Nginx 配置域名和代理请求"></a>四、 使用 Nginx 配置域名和代理请求</h2><p>使用 <a href="http://nginx.org/" target="_blank" rel="noopener">Nginx</a> 可以通过二级域名或二级目录（通过 node server 子目录来访问前端项目）来访问放置在 /var/www/myapp.com 的前端项目文件，本项目采用的是二级域名方法来访问（需要注意的是，二级域名要提前在服务器进行域名解析，否则访问不到。），因此会涉及到前后端交互跨域的问题，通过设置 Nginx 来代理转发请求。</p>
 <p><img src="http://p1s28g7i1.bkt.clouddn.com/node_diagram.png" alt="Reverse Proxy to Node.js Application"></p>
 <h3 id="安装-Nginx-服务器"><a href="#安装-Nginx-服务器" class="headerlink" title="安装 Nginx 服务器"></a>安装 Nginx 服务器</h3><p>首先添加 Nginx 存储库(资料库)，关于包管理器可以看<a href="https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg" target="_blank" rel="noopener">这篇文章</a>。创建一个名为 /etc/yum.repos.d/nginx.repo，然后粘贴下面的配置</p>
@@ -323,7 +324,7 @@ server_names_hash_bucket_size 64;
 <pre><code>server {
     listen       80;
     # 二级域名配置
-    server_name  *.linjiyu.com;  
+    server_name  *.linjiyu.com;
     # 访问的文件根目录
     root   /var/www/linjiyu.com/ebio;
     index index.html index.htm;
@@ -390,7 +391,19 @@ server_names_hash_bucket_size 64;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux，Node.js，Mongodb，Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mongodb</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
         		</li>
       		
 		</ul>
@@ -629,11 +642,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux，Node.js，Mongodb，Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,7 +745,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">(☄⊙ω⊙)☄&lt;br&gt;五湖四海他乡客，&lt;br&gt;相聚缘分不一般。&lt;br&gt;人生没有二次重，&lt;br&gt;主动才会有故事。&lt;br&gt;</div>
   	  	
     	</section>
     

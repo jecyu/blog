@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://p1s28g7i1.bkt.clouddn.com/onepiece_route.png">
 <meta property="og:image" content="http://p1s28g7i1.bkt.clouddn.com/dropdown_menu_tabs.png">
-<meta property="og:updated_time" content="2018-09-26T15:47:03.057Z">
+<meta property="og:updated_time" content="2018-09-27T07:23:59.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端路由窥探">
 <meta name="twitter:description" content="如图，用户点击链接的过程，就像是路飞发出一个请求 URL，要去女帝的国家，至于如何到达，路飞不用管，交给娜美处理就好（这里娜美制定各种航线，到达目的地）。在浏览一个网站时，我们可以通过当前点击各种超链接，从而浏览不同的页面内容，在这其中发生的过程是：  点击一个链接，改变当前网站的 URL ，通过浏览器发送请求； 服务端接收请求，处理解析 URL 路径； 根据服务器的路由配置，返回新的数据（图片、">
@@ -51,13 +51,13 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/blog/" class="profilepic">
-			<img src="http://ww1.sinaimg.cn/large/006i3LGmgy1fmuk6kj5i1j30440443z0.jpg" class="js-avatar">
+			<img src="https://avatars0.githubusercontent.com/u/28448589?s=460&amp;v=4" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/blog/">花森煜米</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">欢迎来到花森煜米的博客</p>
+		<p class="header-subtitle">说学逗唱，混摄绘</p>
 		
 
 		<nav class="header-menu">
@@ -65,7 +65,7 @@
 			
 				<li><a href="/blog/">主页</a></li>
 	        
-				<li><a href="/blog/tags/随笔/">随笔</a></li>
+				<li><a href="/blog/archives/">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -107,13 +107,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://ww1.sinaimg.cn/large/006i3LGmgy1fmuk6kj5i1j30440443z0.jpg" class="js-avatar">
+				<img src="https://avatars0.githubusercontent.com/u/28448589?s=460&amp;v=4" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">花森煜米</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>欢迎来到花森煜米的博客<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>说学逗唱，混摄绘<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -139,7 +139,7 @@
 				
 					<li style="width: 50%"><a href="/blog/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/blog/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/blog/archives/">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -182,6 +182,7 @@
 <li>浏览器来根据数据包的 <code>Content-Type</code> 来决定如何解析数据。</li>
 </ol>
 <p>结论：路由是请求连接到某些代码的机制，通过检测当前页面的 URL 地址，与服务端进行交互，返回对应的页面内容。我们常听说前端路由与后端路由，</p>
+<a id="more"></a>
 <h2 id="一、服务端路由-amp-amp-客户端（前端）路由"><a href="#一、服务端路由-amp-amp-客户端（前端）路由" class="headerlink" title="一、服务端路由 &amp;&amp; 客户端（前端）路由"></a>一、服务端路由 &amp;&amp; 客户端（前端）路由</h2><p><strong>服务端路由</strong></p>
 <p>当浏览一个页面的时候，点击链接时会从服务器请求一个新的页面，以此带来的时对整个页面进行刷新，这就是<code>服务端路由</code>。由于存在许久，这种方法对搜索爬虫比较友好，而且只会请求我们需要的数据。缺点是，每次都是进行整个页面的刷新，尽管网页的头部和尾部都是相同的。其次，当网页内容非常大或我们不在处在服务区边缘的时候，就需要等比较久。现在网速已经达到 100M/s，这个缺点往往可以忽略了。</p>
 <p><strong>前端路由</strong></p>
@@ -231,7 +232,7 @@ Router.prototype.init = function() {
 <li>原始方法，静态页面，所有页面内容放在同一个页面下，使用 JavaScript 原始 router 实现。利用我们刚刚学到的知识，可以解决这个问题了。</li>
 </ol>
 <p>前端路由：</p>
-<p>HTML结构：</p>
+<p>HTML 结构：</p>
 <pre><code>&lt;li class=&quot;dropdown&quot;&gt;
  &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;合作与生态
       &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
@@ -279,7 +280,7 @@ function changeTab(tabNav, tabConentID, bannerUrl) {
     var $banner_img = $banner.find(&quot;img&quot;);
     // 图片地址
     $banner_img.attr(&quot;src&quot;, bannerUrl);
-}   
+}
 </code></pre><p>第二步：定义路由规则，绑定路由函数</p>
 <pre><code>// 初始化路由
 window.Router = new Router();
@@ -311,7 +312,7 @@ Router.route(&quot;/&quot; + tab_3, function() {
     changeTab($tabs_item_link, tab_3, tab_3_bannerUrl);
 });
 </code></pre><p>这样只需要指明当前链接的 <code>hash</code> 属性指向，绑定自定义的回调函数，就可以实现 tabs 与下拉菜单的联动。</p>
-<p>小结：利用路由可以实现页面的跳转不刷新，只需要监听当前 <code>hash</code> 的变化，就可以实现 DOM视图的更新了。</p>
+<p>小结：利用路由可以实现页面的跳转不刷新，只需要监听当前 <code>hash</code> 的变化，就可以实现 DOM 视图的更新了。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a href="https://medium.com/@wilbo/server-side-vs-client-side-routing-71d710e9227f" target="_blank" rel="noopener">Server-side vs Client-side Routing</a></li>
 <li><a href="http://www.alloyteam.com/2016/05/router/" target="_blank" rel="noopener">前端路由实现与 react-router 源码分析</a></li>
@@ -591,11 +592,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux，Node.js，Mongodb，Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,7 +695,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">(☄⊙ω⊙)☄&lt;br&gt;五湖四海他乡客，&lt;br&gt;相聚缘分不一般。&lt;br&gt;人生没有二次重，&lt;br&gt;主动才会有故事。&lt;br&gt;</div>
   	  	
     	</section>
     

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://jecyu.github.io/blog">
   <title>使用HTML5 localStorage实现本地存储 | 花森煜米地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。 一、使用 LocalStorage 的目的：为了添加状态到 Web 应用中HTTP 协议作为网络的主要传输层的最大问题是无状态的，即服务器不知道用户上一次做了什么，这样意味着你使用浏览器访问一个网站如辛苦的填了一个表单，由于不可描">
+  <meta name="description" content="在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。">
 <meta name="keywords" content="html5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用HTML5 localStorage实现本地存储">
 <meta property="og:url" content="https://jecyu.github.io/blog/2017/12/10/2017-12-10-Local-Storage-And-How-To-Use-It-On-Website/index.html">
 <meta property="og:site_name" content="花森煜米地">
-<meta property="og:description" content="在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。 一、使用 LocalStorage 的目的：为了添加状态到 Web 应用中HTTP 协议作为网络的主要传输层的最大问题是无状态的，即服务器不知道用户上一次做了什么，这样意味着你使用浏览器访问一个网站如辛苦的填了一个表单，由于不可描">
+<meta property="og:description" content="在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-26T15:47:03.056Z">
+<meta property="og:updated_time" content="2018-09-27T07:24:29.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用HTML5 localStorage实现本地存储">
-<meta name="twitter:description" content="在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。 一、使用 LocalStorage 的目的：为了添加状态到 Web 应用中HTTP 协议作为网络的主要传输层的最大问题是无状态的，即服务器不知道用户上一次做了什么，这样意味着你使用浏览器访问一个网站如辛苦的填了一个表单，由于不可描">
+<meta name="twitter:description" content="在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。">
   
     <link rel="alternative" href="/atom.xml" title="花森煜米地" type="application/atom+xml">
   
@@ -48,13 +48,13 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/blog/" class="profilepic">
-			<img src="http://ww1.sinaimg.cn/large/006i3LGmgy1fmuk6kj5i1j30440443z0.jpg" class="js-avatar">
+			<img src="https://avatars0.githubusercontent.com/u/28448589?s=460&amp;v=4" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/blog/">花森煜米</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">欢迎来到花森煜米的博客</p>
+		<p class="header-subtitle">说学逗唱，混摄绘</p>
 		
 
 		<nav class="header-menu">
@@ -62,7 +62,7 @@
 			
 				<li><a href="/blog/">主页</a></li>
 	        
-				<li><a href="/blog/tags/随笔/">随笔</a></li>
+				<li><a href="/blog/archives/">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -104,13 +104,13 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://ww1.sinaimg.cn/large/006i3LGmgy1fmuk6kj5i1j30440443z0.jpg" class="js-avatar">
+				<img src="https://avatars0.githubusercontent.com/u/28448589?s=460&amp;v=4" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">花森煜米</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>欢迎来到花森煜米的博客<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>说学逗唱，混摄绘<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -136,7 +136,7 @@
 				
 					<li style="width: 50%"><a href="/blog/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/blog/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/blog/archives/">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -172,6 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。</p>
+<a id="more"></a>
 <h2 id="一、使用-LocalStorage-的目的：为了添加状态到-Web-应用中"><a href="#一、使用-LocalStorage-的目的：为了添加状态到-Web-应用中" class="headerlink" title="一、使用 LocalStorage 的目的：为了添加状态到 Web 应用中"></a>一、使用 LocalStorage 的目的：为了添加状态到 Web 应用中</h2><p>HTTP 协议作为网络的主要传输层的最大问题是无状态的，即服务器不知道用户上一次做了什么，这样意味着你使用浏览器访问一个网站如辛苦的填了一个表单，由于不可描述的原因，网站被关闭。然后你再次重新打开它时，空空如也，what！！？？？？这是因为你关闭桌面上的应用程序时并重新打开它，它会恢复到最新的状态，不会记录你所填的东西。</p>
 <p>这就是为什么作为开发人员，有时候你需要将你的接口状态存储到某个地方。通常，这是在服务端完成的，通过检测用户名来知道要恢复到哪个状态。但是如果你不想强迫别人进行注册呢？（旁白：有时候我们只是蹭蹭不进去 😄）</p>
 <p>这时候就需要 local storage 出场了，你可以在用户的计算机上保存一个钥匙 key，在用户重新访问时获取它来记录蹭过的痕迹。</p>
@@ -185,7 +186,7 @@
 <p>为了解决本地存储问题，使用 Cookie 是相对过时的方案，如今我们可以通过 localStorage 来实现。</p>
 <h2 id="三、在支持-HTML5-的浏览器中开始-localStorage"><a href="#三、在支持-HTML5-的浏览器中开始-localStorage" class="headerlink" title="三、在支持 HTML5 的浏览器中开始 localStorage"></a>三、在支持 HTML5 的浏览器中开始 localStorage</h2><p>在现代浏览器中使用本地 localStorage 是相当容易的，你只需要在 JavaScript 脚本中修改 localStorage 对象，它是 key/value 形式，与传统的对象类似。可以通过<code>setItem()</code>和<code>getItem()</code>方法来访问存储和读取的功能。</p>
 <pre><code>localStorage.setItem(&apos;girlfriend&apos;, &apos;huasen&apos;);
-var hername = localStorage(&apos;girlfriend&apos;);  
+var hername = localStorage(&apos;girlfriend&apos;);
 // -&gt; &quot;huasen&quot;
 </code></pre><p>要删除这个 key 项，你可以使用-你能猜到？——the <code>removeItem()</code></p>
 <pre><code>localStorage.removeItem(&apos;girlfriend);
@@ -485,11 +486,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux，Node.js，Mongodb，Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,7 +589,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">(☄⊙ω⊙)☄&lt;br&gt;五湖四海他乡客，&lt;br&gt;相聚缘分不一般。&lt;br&gt;人生没有二次重，&lt;br&gt;主动才会有故事。&lt;br&gt;</div>
   	  	
     	</section>
     
