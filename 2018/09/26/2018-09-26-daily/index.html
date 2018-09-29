@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://static.zybuluo.com/linjiyu/h0lbbop7hb6ulg7jrgh36o2f/image_1coalo0ai1o56o6015lshr61eqbp.png">
 <meta property="og:image" content="http://static.zybuluo.com/linjiyu/3e03olmulb9ljdbvcdf9gklc/image_1coank64i1c891trugq6k1bhns16.png">
-<meta property="og:updated_time" content="2018-09-28T09:22:08.819Z">
+<meta property="og:updated_time" content="2018-09-29T15:55:57.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知乎日报项目">
 <meta name="twitter:description" content="导语本项目根据《vue.js 实战》上完成的比较小型的单页面应用，没有使用 vue-router 和 vuex，作为一个 vue 新手的练习项目挺不错的，在这个过程中学习了：  Vue 的单文件组件用法 Vue 的基本指令、自定义指令 数据的获取、整理、可视化（跨域处理） prop、事件、子组件索引（实践了组件之前的通信） ES6 模块（结合 《深入理解 ES6》）">
@@ -64,8 +64,6 @@
 			<ul>
 			
 				<li><a href="/blog/">主页</a></li>
-	        
-				<li><a href="/blog/archives/">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -119,8 +117,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -137,9 +133,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/blog/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/blog/archives/">归档</a></li>
+					<li style="width: 100%"><a href="/blog/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -286,7 +280,30 @@ Vue.component(&apos;async-webpack-example&apos;, function (resolve) {
   // 会通过 Ajax 请求加载
   require([&apos;./my-async-component&apos;], resolve)
 })
-</code></pre><h3 id="按需加载第三方库"><a href="#按需加载第三方库" class="headerlink" title="按需加载第三方库"></a>按需加载第三方库</h3><p>如果日后需要扩展引入可视化功能，对于日报的产出文章分类或阅读量可视化显示，则百度 echarts 图表是一个非常适合的选择。如果是完整的引入 Echarts，会额外的引入其他无用的配置文件，造成应用文件体积过大，资源加载耗时过长，影响用户体验。（其他库如 iview、loadsh 等同理）</p>
+</code></pre><p><strong>路由懒加载</strong></p>
+<p>原理跟上面的一样，只不过是返回一个 Promise，所以把 webpack 2 和 ES2015 语法加在一起，</p>
+<pre><code>const router = new Router({
+  mode: &quot;history&quot;,
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: &quot;/&quot;,
+      name: &quot;list&quot;,
+      component: List
+    },
+    {
+      path: &quot;/about&quot;,
+      name: &quot;about&quot;,
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =&gt;
+        import(/* webpackChunkName: &quot;about&quot; */ &quot;./views/About.vue&quot;)
+    }
+  ]
+});
+</code></pre><p>组件 about 会被单独输出 about.js</p>
+<h3 id="按需加载第三方库"><a href="#按需加载第三方库" class="headerlink" title="按需加载第三方库"></a>按需加载第三方库</h3><p>如果日后需要扩展引入可视化功能，对于日报的产出文章分类或阅读量可视化显示，则百度 echarts 图表是一个非常适合的选择。如果是完整的引入 Echarts，会额外的引入其他无用的配置文件，造成应用文件体积过大，资源加载耗时过长，影响用户体验。（其他库如 iview、loadsh 等同理）</p>
 <blockquote>
 <p>原理：</p>
 </blockquote>
@@ -576,11 +593,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">路由，联动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,10 +618,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
