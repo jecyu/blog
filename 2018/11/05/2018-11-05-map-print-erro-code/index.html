@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jecyu.github.io/blog">
-  <title>Archives: 2018/9 | 花森煜米地</title>
+  <title>地图打印中文乱码 | 花森煜米地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。">
-<meta name="keywords" content="Javascript、前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="花森煜米地">
-<meta property="og:url" content="https://jecyu.github.io/blog/archives/2018/09/index.html">
+  <meta name="description" content="导语利用 arcgis 打印地图，打印地图服务是基于 arcgis server 发布的 GP 服务。本文的情景是，通过调用 arcgis server print 服务来打印地图绘制的标注，出现了中文乱码的情况。">
+<meta name="keywords" content="字体编码,GIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="地图打印中文乱码">
+<meta property="og:url" content="https://jecyu.github.io/blog/2018/11/05/2018-11-05-map-print-erro-code/index.html">
 <meta property="og:site_name" content="花森煜米地">
-<meta property="og:description" content="不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。">
+<meta property="og:description" content="导语利用 arcgis 打印地图，打印地图服务是基于 arcgis server 发布的 GP 服务。本文的情景是，通过调用 arcgis server print 服务来打印地图绘制的标注，出现了中文乱码的情况。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://static.zybuluo.com/linjiyu/shq54zd2y5ysjfk4bh7ly4dr/image_1crhdrdla1531rusoaq13ri1qe39.png">
+<meta property="og:updated_time" content="2018-11-05T08:47:28.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="花森煜米地">
-<meta name="twitter:description" content="不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。">
+<meta name="twitter:title" content="地图打印中文乱码">
+<meta name="twitter:description" content="导语利用 arcgis 打印地图，打印地图服务是基于 arcgis server 发布的 GP 服务。本文的情景是，通过调用 arcgis server print 服务来打印地图绘制的标注，出现了中文乱码的情况。">
+<meta name="twitter:image" content="http://static.zybuluo.com/linjiyu/shq54zd2y5ysjfk4bh7ly4dr/image_1crhdrdla1531rusoaq13ri1qe39.png">
   
     <link rel="alternative" href="/atom.xml" title="花森煜米地" type="application/atom+xml">
   
@@ -144,71 +147,242 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2018-11-05-map-print-erro-code" class="article article-type-post "
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/09/26/2018-09-26-daily/" class="archive-article-date">
-  	<time datetime="2018-09-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/09/26/2018-09-26-daily/">知乎日报项目</a>
+    <h1 class="article-title" itemprop="name">
+      地图打印中文乱码
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      <!--显示阅读次数-->
+      
+      <br />
+      <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+          阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+      </a>
+      
+      
+      <a href="/blog/2018/11/05/2018-11-05-map-print-erro-code/" class="archive-article-date">
+  	<time datetime="2018-11-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>利用 arcgis 打印地图，打印地图服务是基于 arcgis server 发布的 GP 服务。本文的情景是，通过调用 arcgis server print 服务来打印地图绘制的标注，出现了中文乱码的情况。</p>
+<p><img src="http://static.zybuluo.com/linjiyu/shq54zd2y5ysjfk4bh7ly4dr/image_1crhdrdla1531rusoaq13ri1qe39.png" alt="image_1crhdrdla1531rusoaq13ri1qe39.png-101.5kB"></p>
+<a id="more"></a>
+<h2 id="分析原因"><a href="#分析原因" class="headerlink" title="分析原因"></a>分析原因</h2><p>字体乱码问题大多数与字符编码有关。如果用英文字体标注中文会引起乱码，显示方框。<br>分析步骤：</p>
+<ol>
+<li>检查标注的字体，是否全部采用了中文字体标注。或者是服务器本身没有对应的字体库，造成中文无法正常显示。</li>
+<li>检查数据库中中文字体存储编码是否和实际数据库字符编码匹配。</li>
+</ol>
+<p>通过检查，发现发送给 arcgis 的 JSON 文件时，对应的中文 font-family 字体为 Arial，但是在绘制的时候，是可以正常显示中文在地图上的，打印导出的时候才出现乱码。</p>
+<h2 id="解决乱码"><a href="#解决乱码" class="headerlink" title="解决乱码"></a>解决乱码</h2><p>方案一：在进行绘制标注的时候，把默认的字体设置为 “Microsoft YaHei” 这样发送给打印服务器时，就可以正常打印出中文字体了。</p>
+<pre><code>textSymbol.font.family = &quot;Microsoft YaHei&quot;;
+</code></pre><p>方案二：不使用 arcgis 的地图服务，而是借助 html2canvas 实现屏幕截图。这个当然没有方案一好，这个方案的主要解决场景是使用 arcgis 打印服务有一些底图打印不出来。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>导致打印的地图中文乱码的原因很多，需要一步步排除。像上面提到的，有时候有可能是数据库字符编码问题，通常是数据实际存储中文的是 GBK2312，数据库字符编码设置为 UTF-8，这样导致了中文乱码。</p>
+<blockquote>
+<p>正常情况，如果是通过 Arcmap 录入数据，无论客户端编码集和 oracle 数据库编码集是否一致，Oracle 都会做正确的字符集转换，来确保存储的中文字符正确，这样从 Server 或其它客户端读取中文字符也会是正确的结果。这个特殊案例是在数据存储时，字符集没有做正确的转换，导致中文字符编码错误，故而引起 Server 中文标注乱码。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000006110417" target="_blank" rel="noopener">关于字体的设置</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/35273867" target="_blank" rel="noopener">地图打印</a></li>
+<li><a href="https://developers.arcgis.com/javascript/3/jsapi/printtask-amd.html#execute" target="_blank" rel="noopener">arcgis printTask</a></li>
+</ul>
+
+      
+
+      
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>
+                    谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">字体编码</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GIS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/blog/categories/js相关//" class="article-tag-list-link color5">js相关</a>
+        			<a href="/blog/categories/js-相关//" class="article-tag-list-link color1">js 相关</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+      
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://jecyu.github.io/blog/2018/11/05/2018-11-05-map-print-erro-code/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2018/10/08/2018-10-08-vue-shopping/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue 电商实战</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#导语"><span class="toc-number">1.</span> <span class="toc-text">导语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析原因"><span class="toc-number">2.</span> <span class="toc-text">分析原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决乱码"><span class="toc-number">3.</span> <span class="toc-text">解决乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://jecyu.github.io/blog/blog/2018/11/05/2018-11-05-map-print-erro-code/",
+  owner: 'Jecyu',
+  repo: 'blog',
+  oauth: {
+    client_id: '0aa6614b80c475d14ea2',
+    client_secret: 'd9a0a9c38fdcebb067fd027569ee84f8ab20aa75',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
 
           </div>
@@ -236,8 +410,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-			isArchive: true,
+		isPost: true,
+			isArchive: false,
 				isTag: false,
 					isCategory: false,
 						open_in_new: false,
