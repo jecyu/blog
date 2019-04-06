@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jecyu.github.io/blog">
-  <title>Category: 后端相关 | 花森煜米地</title>
+  <title>v-model 用法、原理解析及应用场景 | 花森煜米地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。">
-<meta name="keywords" content="Javascript、前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="花森煜米地">
-<meta property="og:url" content="https://jecyu.github.io/blog/categories/后端相关/index.html">
+  <meta name="description" content="导语最近在使用 vue + iview 项目中，有一个表格需求需要在表头上嵌入选择框，我使用到了 render 方法 （JSX 写法）来减少 template 复杂度，这样却导致使用不了 v-model 指令（vue-babel 当前版本不支持在 JSX 中解析 vue 指令），因此我需要使用原生 JS 来模拟实现。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v-model 用法、原理解析及应用场景">
+<meta property="og:url" content="https://jecyu.github.io/blog/2019/03/12/2019-03-12-v-model/index.html">
 <meta property="og:site_name" content="花森煜米地">
-<meta property="og:description" content="不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。">
+<meta property="og:description" content="导语最近在使用 vue + iview 项目中，有一个表格需求需要在表头上嵌入选择框，我使用到了 render 方法 （JSX 写法）来减少 template 复杂度，这样却导致使用不了 v-model 指令（vue-babel 当前版本不支持在 JSX 中解析 vue 指令），因此我需要使用原生 JS 来模拟实现。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-06T05:53:10.683Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="花森煜米地">
-<meta name="twitter:description" content="不定期分享总结个人遇到的问题、经验，欢迎一起交流学习。">
+<meta name="twitter:title" content="v-model 用法、原理解析及应用场景">
+<meta name="twitter:description" content="导语最近在使用 vue + iview 项目中，有一个表格需求需要在表头上嵌入选择框，我使用到了 render 方法 （JSX 写法）来减少 template 复杂度，这样却导致使用不了 v-model 指令（vue-babel 当前版本不支持在 JSX 中解析 vue 指令），因此我需要使用原生 JS 来模拟实现。">
   
     <link rel="alternative" href="/atom.xml" title="花森煜米地" type="application/atom+xml">
   
@@ -144,83 +145,289 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2019-03-12-v-model" class="article article-type-post "
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/04/30/2018-04-30-Website-Deployment/" class="archive-article-date">
-  	<time datetime="2018-04-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/04/30/2018-04-30-Website-Deployment/">网站线上部署</a>
+    <h1 class="article-title" itemprop="name">
+      v-model 用法、原理解析及应用场景
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      <!--显示阅读次数-->
+      
+      <br />
+      <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+          阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+      </a>
+      
+      
+      <a href="/blog/2019/03/12/2019-03-12-v-model/" class="archive-article-date">
+  	<time datetime="2019-03-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>最近在使用 vue + iview 项目中，有一个表格需求需要在表头上嵌入选择框，我使用到了 render 方法 （JSX 写法）来减少 template 复杂度，这样却导致使用不了 v-model 指令（vue-babel 当前版本不支持在 JSX 中解析 vue 指令），因此我需要使用原生 JS 来模拟实现。</p>
+<a id="more"></a>
+<h2 id="v-model-用法"><a href="#v-model-用法" class="headerlink" title="v-model 用法"></a>v-model 用法</h2><p>首先回顾下 v-model 的用法(如果你已经熟悉了它的用法，可以直接跳到第二部分)，可以用 v-model 指令在表单 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 及 <code>&lt;select&gt;</code> 元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素，通过监听用户的输入事件来更新数据。</p>
+<p>v-model 在内部使用不同的属性为不同的输入元素并抛出不同的事件：</p>
+<ul>
+<li>text 和 textarea 元素使用 value 属性和 input 事件；</li>
+<li>checkbox 和 radio 使用 checked 属性和 change 事件；</li>
+<li>select 字段将 value 作为 prop 并将 change 作为事件。</li>
+</ul>
+<h3 id="单行文本输入框"><a href="#单行文本输入框" class="headerlink" title="单行文本输入框"></a>单行文本输入框</h3><p>input 通过 v-model 绑定 vue 的数据源的值。当 input 输入值一旦发生变化，数据也相应的发生变化，从而元素渲染的值也会发生变化。当你修改输入值时，对应可以看到 p 元素的内容发生变化。</p>
+<p></p><p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Jecyu" data-slug-hash="jJdZMV" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="v-model-单行文本输入框"><br>  <span>See the Pen <a href="https://codepen.io/Jecyu/pen/jJdZMV/" target="_blank" rel="noopener"><br>  v-model-单行文本输入框</a> by jecyu (<a href="https://codepen.io/Jecyu" target="_blank" rel="noopener">@Jecyu</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="v-model-原理"><a href="#v-model-原理" class="headerlink" title="v-model 原理"></a>v-model 原理</h2><p>其实 v-model 只是 v-bind 和 v-on 的语法糖，当使用文本 input(包括 email，number 等) textarea 时，v-model=”message” 等价于:value=”message” @input=”e =&gt; { message = e.target.value}”，这样意味着每次输入完后 message 的值被更新为输入的值，然后输入的值被设置为 message。</p>
+<p></p><p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Jecyu" data-slug-hash="gEqemW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="v-on 结合v-bind成 v-model"><br>  <span>See the Pen <a href="https://codepen.io/Jecyu/pen/gEqemW/" target="_blank" rel="noopener"><br>  v-on 结合v-bind成 v-model</a> by jecyu (<a href="https://codepen.io/Jecyu" target="_blank" rel="noopener">@Jecyu</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h3><p>单选按钮在单独使用时，不需要 v-model，直接使用 v-bind 绑定一个布尔类型的值，为真时选中，为否时不选中。</p>
+<figure class="highlight bash"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">  &lt;label&gt;</span><br><span class="line">    单选按钮</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> :checked=<span class="string">"picked"</span>&gt;</span><br><span class="line">  &lt;/label&gt;</span><br><span class="line">  &#123;&#123; picked &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> app = new Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    picked: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>组合使用来实现排斥效果，结合 value 和 v-model：</p>
+<p></p><p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Jecyu" data-slug-hash="wONmEj" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="v-model 单选按钮"><br>  <span>See the Pen <a href="https://codepen.io/Jecyu/pen/wONmEj/" target="_blank" rel="noopener"><br>  v-model 单选按钮</a> by jecyu (<a href="https://codepen.io/Jecyu" target="_blank" rel="noopener">@Jecyu</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h3><p>单个复选框，也是使用 v-model 来绑定一个布尔值。代码如下：</p>
+<figure class="highlight bash"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;label&gt;</span><br><span class="line">      &lt;input <span class="built_in">type</span>=<span class="string">"checkbox"</span> v-model=<span class="string">"checked"</span>&gt;</span><br><span class="line">    &lt;/label&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;span&gt;选中：&#123;&#123; checked &#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> app = new Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    checked: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p> 这里使用 v-bind 和 checked 属性模拟：</p>
+<p></p><p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Jecyu" data-slug-hash="movLbp" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="v-model  单个复选框"><br>  <span>See the Pen <a href="https://codepen.io/Jecyu/pen/movLbp/" target="_blank" rel="noopener"><br>  v-model  单个复选框</a> by jecyu (<a href="https://codepen.io/Jecyu" target="_blank" rel="noopener">@Jecyu</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>多个复选框共享一个数据源(v-model 指定的值)时，经常有这种情况的使用，如购物车、菜单树等，配合 v-model 与 value 一起使用，勾选的值 value 会被绑定到同一个数组，要注意指定该值为数组类型。</p>
+<p></p><p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Jecyu" data-slug-hash="MxLGpw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="v-model  多个复选框"><br>  <span>See the Pen <a href="https://codepen.io/Jecyu/pen/MxLGpw/" target="_blank" rel="noopener"><br>  v-model  多个复选框</a> by jecyu (<a href="https://codepen.io/Jecyu" target="_blank" rel="noopener">@Jecyu</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="选择框"><a href="#选择框" class="headerlink" title="选择框"></a>选择框</h3><p></p><p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Jecyu" data-slug-hash="bJedgO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="v-model  选择框"><br>  <span>See the Pen <a href="https://codepen.io/Jecyu/pen/bJedgO/" target="_blank" rel="noopener"><br>  v-model  选择框</a> by jecyu (<a href="https://codepen.io/Jecyu" target="_blank" rel="noopener">@Jecyu</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span><br></p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="如何在自定义组件里使用-v-model"><a href="#如何在自定义组件里使用-v-model" class="headerlink" title="如何在自定义组件里使用 v-model"></a>如何在自定义组件里使用 v-model</h2><p>在自定义组件中，从使用形式倒推过程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component v-model=<span class="string">"something"</span>&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+<p>相当于：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component v-bind:value=<span class="string">"something"</span> v-on:input=<span class="string">"something = arguments[0]"</span>&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+<p>这个时候，something 接受的值就是 input 是事件的回掉函数的第一个参数,<br>所以要实现数据绑定，除了声明对应的 props 外，还需要使用 \$emit 去触发 input 的事件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  value: &#123;</span><br><span class="line">    <span class="built_in">type</span>: String,</span><br><span class="line">    default: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  handleInput(value) &#123;</span><br><span class="line">    this.<span class="variable">$emit</span>(<span class="string">'input'</span>, value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现自定义组件的-props-双向绑定"><a href="#实现自定义组件的-props-双向绑定" class="headerlink" title="实现自定义组件的 props 双向绑定"></a>实现自定义组件的 props 双向绑定</h3><p>vue 2.x 版本取消 l 了 props 的双向绑定，改成只能从父级到子级的单向数据流，避免父子组件的数据改动混乱。</p>
+<h4 id="不使用-v-model-的方法，步骤是这样的："><a href="#不使用-v-model-的方法，步骤是这样的：" class="headerlink" title="不使用 v-model 的方法，步骤是这样的："></a>不使用 v-model 的方法，步骤是这样的：</h4><ol>
+<li>在父组件中，用 data 对象创建一个 props 属性的副本。</li>
+<li>在子组件中，watch props 属性，并赋值给 data 副本，同步组件对外 props 的修改。</li>
+<li>在子组件中，watch data 副本， emit 一个方法，通知组件外。</li>
+</ol>
+<p>以一个向左弹出框为例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=<span class="string">"slide-panel"</span> :class=<span class="string">"&#123; slideOut: isSlideOut&#125;"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"slide-panel-tools"</span> @click=<span class="string">"handleClickTools"</span> :style=<span class="string">"computedDis"</span>&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123; widgetName &#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"slide-panel-content"</span>&gt;</span><br><span class="line">      &lt;slot name=<span class="string">"content"</span>&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">"SlidePanel"</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    // 挂件的名称</span><br><span class="line">    widgetName: &#123;</span><br><span class="line">      <span class="built_in">type</span>: String,</span><br><span class="line">      default: () =&gt; <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    // 标签距离 panel 顶部的距离</span><br><span class="line">    distance: &#123;</span><br><span class="line">      <span class="built_in">type</span>: [String, Number],</span><br><span class="line">      default: () =&gt; 3</span><br><span class="line">    &#125;,</span><br><span class="line">    isFold: &#123;</span><br><span class="line">      <span class="built_in">type</span>: Boolean,</span><br><span class="line">      default: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      isSlideOut: this.isFold</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="function"><span class="title">computedDis</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> &#123;</span><br><span class="line">        top: `<span class="variable">$&#123;this.distance&#125;</span>rem`</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    isFold(value) &#123;</span><br><span class="line">      // 如果改变，则触发折叠方法</span><br><span class="line">      // 当前的问题：当 isFold 为 <span class="literal">true</span>，在组件内部关闭弹框如何处理，通过 emit</span><br><span class="line">      this.isSlideOut = value;</span><br><span class="line">    &#125;,</span><br><span class="line">    isSildeOut(val) &#123;</span><br><span class="line">      this.<span class="variable">$emit</span>(<span class="string">"on-visiable-change"</span>, val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    // 通过内部事件触发</span><br><span class="line">    <span class="function"><span class="title">handleClickTools</span></span>() &#123;</span><br><span class="line">      this.isSlideOut = !this.isSlideOut;</span><br><span class="line">      this.<span class="variable">$emit</span>(<span class="string">"on-visiable-change"</span>, this.isSlideOut);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>调用 SlidePanel 组件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">  &lt;SlidePanel :isFold=<span class="string">"rightSlidePanelIsFold"</span> @on-visiable-change=<span class="string">"slidePanelStatusChange"</span>&gt;</span><br><span class="line">    &lt;template slot=<span class="string">"content"</span>&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">  &lt;/SlidePanel&gt;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">export</span> default &#123;</span><br><span class="line">  <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      rightSlidePanelIsFold: <span class="literal">false</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    slidePanelStatusChange(status) &#123;</span><br><span class="line">      this.rightSlidePanelIsFold = status;</span><br><span class="line">      <span class="comment"># 这里还可以同步更改 vuex 里的状态</span></span><br><span class="line">      <span class="comment"># const option = &#123;</span></span><br><span class="line">      <span class="comment">#   type: "openRightSlidePanel",</span></span><br><span class="line">      <span class="comment">#   value: status</span></span><br><span class="line">      <span class="comment"># &#125;;</span></span><br><span class="line">      <span class="comment"># this.$store.commit("FZBZ_SET_AIANALYSIS_STATUS", option);</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="更好的解决方案"><a href="#更好的解决方案" class="headerlink" title="更好的解决方案"></a>更好的解决方案</h4><p>上面这种写法确实可以解决组件 props 的双向绑定问题，但是在父组件引用时，还需要写一个 slidePanelStatusChange 的方法，显得代码有点冗余。下面使用 v-model 来实现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=<span class="string">"slide-panel"</span> :class=<span class="string">"&#123; slideOut: isSlideOut&#125;"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"slide-panel-tools"</span> @click=<span class="string">"handleClickTools"</span>&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123; widgetName &#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"slide-panel-content"</span>&gt;</span><br><span class="line">      &lt;slot name=<span class="string">"content"</span>&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">"NrSlidePanel"</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">      <span class="built_in">type</span>: Boolean,</span><br><span class="line">      default: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      isSlideOut: <span class="literal">false</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    value(val) &#123;</span><br><span class="line">      this.isSlideOut = val;</span><br><span class="line">    &#125;,</span><br><span class="line">    isSlideOut(val) &#123;</span><br><span class="line">      this.<span class="variable">$emit</span>(<span class="string">"input"</span>, val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">handleClickTools</span></span>() &#123;</span><br><span class="line">      this.isSlideOut = !this.isSlideOut;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (this.value) &#123;</span><br><span class="line">      this.isSlideOut = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>不再需要额外使用方法，来处理面板的状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;NrSlidePanel v-model=<span class="string">"isShowSlidePanel"</span> :widgetName=<span class="string">"NrSlidePanel"</span>&gt;&lt;/NrSlidePanel&gt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line"> <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">   isShowSlidePanel: <span class="literal">false</span></span><br><span class="line"> &#125;,</span><br><span class="line"> watch: &#123;</span><br><span class="line">   isShowSlidePanel(val) &#123;</span><br><span class="line">     // <span class="keyword">do</span> something</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>这样就可以实现 props 的双向绑定了，另外 vue 在 2.3.0+ 版本后直接添加了 <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6" target="_blank" rel="noopener">.sync 修饰符</a>，v-model 是 .sync 的一种体现，目的都是实现组件与外部数据的双向绑定。sync 和 v-model 都是通过 prop 把外部数据下发组件，组件再通过 event 把内部发生变换的数据传回去。区别就是 .sync 可以传递双向绑定多个值，语义上也更加清晰命了，表明这个数据会更改父组件的值。v-model 更多用于表单，prop 设置为 value。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;son :mes.sync=<span class="string">"message"</span>&gt;&lt;/son&gt;</span><br><span class="line"></span><br><span class="line">// 扩展为</span><br><span class="line">&lt;son :mes=<span class="string">"message"</span> @update:mes=<span class="string">"val =&gt; message=val"</span>&gt;&lt;/son&gt;</span><br></pre></td></tr></table></figure>
+<p>与自定义事件的区别在于，表达式 val =&gt; message = val 意味着强制让父组件的数据等于子组件传递过来的数据， 这个时候，我们发现父子组件的地位是平等的。 父可以改变子（数据）， 子也可以改变父（数据）。而自定义事件只能由父组件来决定如何处理，也就是上面提到的不使用 V-MODEL 的方法实现的例子。</p>
+<h2 id="如何在-JSX-中使用-v-model"><a href="#如何在-JSX-中使用-v-model" class="headerlink" title="如何在 JSX 中使用 v-model"></a>如何在 JSX 中使用 v-model</h2><p>了解 v-model 的实现原理及在自定义组件的应用后， 使用 JSX 来实现就不再是问题了。因为 JSX 中不能再使用 v-model 指令，在 vue 中可以通过传值和监听事件改变值来实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">''</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    text: <span class="string">''</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    input(e) &#123;</span><br><span class="line">      this.text = e.target.value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> value=&#123;this.text&#125; on-input=<span class="string">"this.input"</span> /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="v-model-的应用场景"><a href="#v-model-的应用场景" class="headerlink" title="v-model 的应用场景"></a>v-model 的应用场景</h2><ul>
+<li>一些容器组件如 modal 框</li>
+<li>表单组件</li>
+</ul>
+<p>可以查看 <a href="https://www.iviewui.com/components/drawer#API" target="_blank" rel="noopener">iview 文档</a>及源码实现</p>
+<p>（完）</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://juejin.im/post/5affa64df265da0b93488fdd#heading-0" target="_blank" rel="noopener">在 vue 中使用 jsx 语法</a></li>
+</ul>
+
+      
+
+      
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>
+                    谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/blog/categories/后端相关//" class="article-tag-list-link color5">后端相关</a>
+        			<a href="/blog/categories/vue-相关//" class="article-tag-list-link color2">vue 相关</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+      
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://jecyu.github.io/blog/2019/03/12/2019-03-12-v-model/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2018/11/05/2018-11-05-map-print-erro-code/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">地图打印中文乱码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#导语"><span class="toc-number">1.</span> <span class="toc-text">导语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-model-用法"><span class="toc-number">2.</span> <span class="toc-text">v-model 用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单行文本输入框"><span class="toc-number">2.1.</span> <span class="toc-text">单行文本输入框</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-model-原理"><span class="toc-number">3.</span> <span class="toc-text">v-model 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单选按钮"><span class="toc-number">3.1.</span> <span class="toc-text">单选按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复选框"><span class="toc-number">3.2.</span> <span class="toc-text">复选框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择框"><span class="toc-number">3.3.</span> <span class="toc-text">选择框</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何在自定义组件里使用-v-model"><span class="toc-number">4.</span> <span class="toc-text">如何在自定义组件里使用 v-model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现自定义组件的-props-双向绑定"><span class="toc-number">4.1.</span> <span class="toc-text">实现自定义组件的 props 双向绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不使用-v-model-的方法，步骤是这样的："><span class="toc-number">4.1.1.</span> <span class="toc-text">不使用 v-model 的方法，步骤是这样的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更好的解决方案"><span class="toc-number">4.1.2.</span> <span class="toc-text">更好的解决方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何在-JSX-中使用-v-model"><span class="toc-number">5.</span> <span class="toc-text">如何在 JSX 中使用 v-model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-model-的应用场景"><span class="toc-number">6.</span> <span class="toc-text">v-model 的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://jecyu.github.io/blog/blog/2019/03/12/2019-03-12-v-model/",
+  owner: 'Jecyu',
+  repo: 'blog',
+  oauth: {
+    client_id: '0aa6614b80c475d14ea2',
+    client_secret: 'd9a0a9c38fdcebb067fd027569ee84f8ab20aa75',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
 
           </div>
@@ -248,10 +455,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 			isArchive: false,
 				isTag: false,
-					isCategory: true,
+					isCategory: false,
 						open_in_new: false,
 							toc_hide_index: true,
 								root: "/blog/",
