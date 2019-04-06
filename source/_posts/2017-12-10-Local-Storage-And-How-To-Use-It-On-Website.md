@@ -6,9 +6,12 @@ date: 2017-12-10
 comments: true
 categories: 译文
 tags: [html5]
+toc: true
 ---
 
 在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。
+
+<!-- more -->
 
 ## 一、使用 LocalStorage 的目的：为了添加状态到 Web 应用中
 
@@ -35,7 +38,7 @@ HTTP 协议作为网络的主要传输层的最大问题是无状态的，即服
 在现代浏览器中使用本地 localStorage 是相当容易的，你只需要在 JavaScript 脚本中修改 localStorage 对象，它是 key/value 形式，与传统的对象类似。可以通过`setItem()`和`getItem()`方法来访问存储和读取的功能。
 
     localStorage.setItem('girlfriend', 'huasen');
-    var hername = localStorage('girlfriend');  
+    var hername = localStorage('girlfriend');
     // -> "huasen"
 
 要删除这个 key 项，你可以使用-你能猜到？——the `removeItem()`
@@ -69,8 +72,8 @@ localStorage 中有一个令人讨厌 😒 的缺点是只能在不同的键 key
 
 ## 进一步阅读
 
-* [What is the difference between localStorage, sessionStorage, session and cookies?](https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies)
-* [MDN Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-* [维基百科 Cookie](https://zh.wikipedia.org/wiki/Co-+okie#Cookies的替代品)
-* [详说 Cookie, LocalStorage 与 SessionStorage](http://jerryzou.com/posts/cookie-and-web-storage/)
-* [HTML5 indexedDB 前端本地存储数据库实例教程](http://www.zhangxinxu.com/wordpress/2017/07/html5-indexeddb-js-example/)
+- [What is the difference between localStorage, sessionStorage, session and cookies?](https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies)
+- [MDN Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+- [维基百科 Cookie](https://zh.wikipedia.org/wiki/Co-+okie#Cookies的替代品)
+- [详说 Cookie, LocalStorage 与 SessionStorage](http://jerryzou.com/posts/cookie-and-web-storage/)
+- [HTML5 indexedDB 前端本地存储数据库实例教程](http://www.zhangxinxu.com/wordpress/2017/07/html5-indexeddb-js-example/)
