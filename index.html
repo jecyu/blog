@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://jecyu.github.io/blog">
   <title>花森煜米地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -37,7 +37,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -146,6 +146,248 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2019-08-10-July-summary" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/10/2019-08-10-July-summary/">2019年7月份总结</a>
+    </h1>
+  
+
+      <!--显示阅读次数-->
+      
+      
+      <a href="/blog/2019/08/10/2019-08-10-July-summary/" class="archive-article-date">
+  	<time datetime="2019-08-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-10</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>时间过得快，2019年过了快一半了。记录下七月份的总结。回顾下年初的目标。</p>
+      
+      <a class="article-more-a" href="/blog/2019/08/10/2019-08-10-July-summary/#more">
+        more >></a>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/blog/2019/08/10/2019-08-10-July-summary/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-2019-06-08-CSP" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/06/08/2019-06-08-CSP/">CSR 内容安全策略入门</a>
+    </h1>
+  
+
+      <!--显示阅读次数-->
+      
+      
+      <a href="/blog/2019/06/08/2019-06-08-CSP/" class="archive-article-date">
+  	<time datetime="2019-06-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-08</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>最近在修复公司系统一个图片导出的功能，无法导出图片</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/8/16b35154bc91af0d?w=1328&amp;h=182&amp;f=png&amp;s=289028" alt>，拒绝加载图片<code>blob:http://xxxx</code>，违反<code>Content Security Policy</code>，<br>于是就 google 一把，这个是什么玩意？</p>
+<h2 id="Content-Security-Policy"><a href="#Content-Security-Policy" class="headerlink" title="Content Security Policy"></a>Content Security Policy</h2><p>这是网站安全方面的内容了，对于网站跨域的问题错误不少见，跨域是由于<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#Cross-origin_script_API_access" target="_blank" rel="noopener">同源策略</a>导致的，只允许加载来自自身的 origin 域的数据，即 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 是不能加载来自 <a href="http://b.com" target="_blank" rel="noopener">http://b.com</a> 的数据的，这样就解决大部分的安全问题，恶意代码就无法在浏览器端执行获取用户的安全隐私。毕竟，“道高一丈，魔高一尺”，恶意方总有方法绕过同源策略的限制，如<a href="https://baike.baidu.com/item/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">XSS</a>跨站脚本攻击，比如网站有个留言板功能，但后台未对用户输入进行过滤，攻击者可以在留言编辑框中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://www.hacker.org/xss.payload.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>，xss.payload.js 可以获取老浏览用户的信息，如的登录 token、用户的个人资料等。以前的防御手段主要是对用户输入进行过滤如：去除 html 标签，实体化，关键字过滤等等，这样一来，最终的结果就是后台的大多数代码都是在做字符串验证，非常的让人不舒服。所以 W3 org 引入了 CSP，它从另外一层面给浏览器提供了保护。</p>
+<p>看看 MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP" target="_blank" rel="noopener">Content Security Policy</a>的解释：</p>
+<blockquote>
+<p>内容安全策略 (CSP) 是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (XSS) 和数据注入攻击等。无论是数据盗取、网站内容污染还是散发恶意软件，这些攻击都是主要的手段。</p>
+</blockquote>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>CSP 通过告诉浏览器一系列的规则，严格规定页面中哪些资源允许有哪些资源，不在指定范围内的统统拒绝，这样一来，从源头上杜绝了不可信的 xss payload。</p>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>无论是在 <code>&lt;meta&gt;</code> 标签还是在 header 中指定，其值的格式是统一的，都由一系列的指令组成的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: &lt;policy-directive&gt;; &lt;policy-directive&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的指令是 CSP 规定中用以详细描述某种资源的判断，比如前面的错误图片中，<code>img-src</code> 指定图片，下面列出一些常用的指令</p>
+<ul>
+<li>child-src：为 web workers 和其他内嵌浏览器内容（例如用<frame>和<iframe>加载到页面的内容）定义合法的源地址。</iframe></li>
+<li>connect-src：限制能通过脚本接口加载的 UR</li>
+<li>default-src：为其他取指令提供备用服务 fetch directives。</li>
+<li>font-src：设置允许通过@font-face 加载的字体源地址。</li>
+<li>img-src: 限制图片和图标的源地址</li>
+<li>frame-src： 设置允许通过类似<frame>和<iframe>标签加载的内嵌内容的源地址</iframe></li>
+<li>限制 application manifest 文件的源地址。</li>
+<li>object-src：限制<object>、<embed>、<applet>标签的源地址。</applet></object></li>
+<li>media-src：限制通过<audio>、<video>或<track>标签加载的媒体文件的源地址。</video></audio></li>
+<li>prefetch-src ：指定预加载或预渲染的允许源地址。</li>
+<li>script-src：限制 JavaScript 的源地址。</li>
+<li>style-src：限制层叠样式表文件源。</li>
+<li>worker-src：限制 Worker、SharedWorker 或者 ServiceWorker 脚本源。</li>
+</ul>
+<p>更多指令，见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy__by_cnvoid#%E8%AF%AD%E6%B3%95" target="_blank" rel="noopener">MDN</a></p>
+<h3 id="指令可接受的值"><a href="#指令可接受的值" class="headerlink" title="指令可接受的值"></a>指令可接受的值</h3><p>指令后面跟的来源，有两种写法：</p>
+<ul>
+<li>预设值</li>
+<li>URI 通配符</li>
+</ul>
+<h4 id="预设值"><a href="#预设值" class="headerlink" title="预设值"></a>预设值</h4><ul>
+<li>none 不匹配任何东西。</li>
+<li>self 匹配当前域，但不包括子域。比如 example.com 可以，api.example.com 则会匹配失败。</li>
+<li>unsafe-inline 允许内嵌的脚本及样式。</li>
+<li>unsafe-eval 允许通过字符串动态创建的脚本执行，比如 eval，setTimeout 等</li>
+</ul>
+<h4 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h4><p>除了上面配置的预设值，还可以通过提供完整的 URI 或带通配符 <code>*</code> 的地址来匹配，以指定资源的合法来源，跟配置跨域的相应头一致，参考<a href="https://developer.mozilla.org/enSame-origin_policy-US/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener">Same-origin_policy</a></p>
+<ul>
+<li><em>://</em>.example.com:* 会匹配所有 example.com 的子域名，但不包括 example.com。</li>
+<li><a href="http://example.com" target="_blank" rel="noopener">http://example.com</a> 和 <a href="http://www.example.com" target="_blank" rel="noopener">http://www.example.com</a> 是两个不同的 URI。</li>
+<li><a href="http://example.com:80" target="_blank" rel="noopener">http://example.com:80</a> 和 <a href="http://example.com" target="_blank" rel="noopener">http://example.com</a> 也是是两个不同的 URI，虽然网站默认端口就是 80</li>
+</ul>
+<h3 id="实现途径"><a href="#实现途径" class="headerlink" title="实现途径"></a>实现途径</h3><p>默认情况下，如果站点未指定 CSP 规则，浏览器不会默认开启，只受同源策略的影响。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span> /&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span> /&gt;</span><br><span class="line">    &lt;title&gt;CSP 安全策略&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      h1 &#123;</span><br><span class="line">        color: cornflowerblue;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;Hello CSP !&lt;/h1&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      window.onload = () =&gt; alert(<span class="string">"Hi, Jecyu"</span>);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/8/16b361b83270ec2f?w=1968&amp;h=804&amp;f=png&amp;s=99390" alt></p>
+<h4 id="HTML-中添加-标签来指定-Content-Security-Policy-规则"><a href="#HTML-中添加-标签来指定-Content-Security-Policy-规则" class="headerlink" title="HTML 中添加  标签来指定 Content-Security-Policy 规则"></a>HTML 中添加 <meta> 标签来指定 Content-Security-Policy 规则</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">   ...</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"Content-security-Policy"</span> content=<span class="string">"default-src 'self'"</span> /&gt;</span><br><span class="line">  ...</span><br><span class="line"> &lt;/head&gt;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/8/16b3623338b1b7c5?w=2836&amp;h=528&amp;f=png&amp;s=289774" alt></p>
+<p>配置站点默认只信息同域的资源，但注意，这个设置并不包含内联的情况，所以结果会如上图。如何修复它呢。如果我们想要允许页面内的内联脚本或样式，则可以通过添加<code>unsafe-inline</code> 指令值来修复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta  http-equiv=<span class="string">"Content-security-Policy"</span>  content=<span class="string">"default-src 'self' 'unsafe-inline'"</span></span><br><span class="line">    /&gt;</span><br></pre></td></tr></table></figure>
+<p>default-src，如果指定了它的值，则相当于改变了这些未指定的指令的默认值。可以理解为，上面 style-src 如果没指定，本来其默认值是 *，可以加载所有来源的样式，但设置 default-src 后，默认值就成了 default-src 指定的值。</p>
+<h4 id="服务器添加-Content-Security-Policy-响应头来指定规则"><a href="#服务器添加-Content-Security-Policy-响应头来指定规则" class="headerlink" title="服务器添加 Content-Security-Policy 响应头来指定规则"></a>服务器添加 Content-Security-Policy 响应头来指定规则</h4><p>这里使用 node.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">const http = require(<span class="string">"http"</span>);</span><br><span class="line">const fs = require(<span class="string">"fs"</span>);</span><br><span class="line">const PORT = 8088;</span><br><span class="line">const path = require(<span class="string">"path"</span>);</span><br><span class="line">console.log();</span><br><span class="line">// 创建一个 http 服务</span><br><span class="line">const server = http.createServer((request, response) =&gt; &#123;</span><br><span class="line">  response.setHeader(<span class="string">"Content-Type"</span>, <span class="string">"text/html;charset='utf-8'"</span>);</span><br><span class="line">  response.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">  response.setHeader(</span><br><span class="line">    <span class="string">"Content-security-Policy"</span>,</span><br><span class="line">    <span class="string">"default-src 'self' 'unsafe-inline'"</span></span><br><span class="line">  );</span><br><span class="line">  // 读文件</span><br><span class="line">  fs.readFile(path.resolve(__dirname, <span class="string">"./index.html"</span>), <span class="keyword">function</span>(err, data) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      console.log(`index.html loading is failed` + err);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      // 返回 HTML 页面</span><br><span class="line">      response.end(data);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 启动服务，监听端口</span><br><span class="line">server.listen(PORT, () =&gt; &#123;</span><br><span class="line">  console.log(<span class="string">"服务启动成功，正在监听: "</span>, PORT);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/8/16b367704002f00a?w=2348&amp;h=776&amp;f=png&amp;s=198076" alt></p>
+<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><ul>
+<li>对于设置了多次响应头的情况，最严格的规则会生效（无论是在<meta> 中，还是 header 中）</li>
+<li>同一指令多次指定，以第一个为准，后续的会被忽略。</li>
+</ul>
+<h2 id="解决图片导出的问题"><a href="#解决图片导出的问题" class="headerlink" title="解决图片导出的问题"></a>解决图片导出的问题</h2><p>看看了请求首页的请求响应参数，如下：<br><img src="https://user-gold-cdn.xitu.io/2019/6/8/16b35eb874a25c67?w=1842&amp;h=742&amp;f=png&amp;s=607435" alt></p>
+<p>通过前面的学习后，得知可以通过 HTML 或者 Header 进行对 CSP 规则的设置，从而避开限制。这里并没有设置 <code>img-src</code>，由于设置 <code>default-src &#39;self&#39; data: *;</code>，因此图片只能加载同域的图片，因此 <code>img-src</code>不允许 <code>blob</code>的数据，来自 <a href="https://content-security-policy.com/" target="_blank" rel="noopener">https://content-security-policy.com/</a></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/8/16b3654089e6e730?w=1968&amp;h=98&amp;f=png&amp;s=26333" alt></p>
+<p>因此只好在动态设置图片 src 的时候，先把 blob 转为 <code>base64</code> 形式，这样就符合了 CSR 的设置规则了，图片就可以添加到 HTML 中了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">var base64data = <span class="string">""</span>;</span><br><span class="line">xhr.onload = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">       img = new Image();</span><br><span class="line">       var reader = new window.FileReader();</span><br><span class="line">       reader.readAsDataURL(this.response);</span><br><span class="line">       reader.onloadend = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">         base64data = reader.result;</span><br><span class="line">         img.src = base64data;</span><br><span class="line">       &#125;;</span><br><span class="line">       img.addEventListener(</span><br><span class="line">         <span class="string">"load"</span>,</span><br><span class="line">         <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">           deferred.resolve(img);</span><br><span class="line">           URL.revokeObjectURL(_url);</span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="literal">false</span></span><br><span class="line">       );</span><br><span class="line">       img.addEventListener(<span class="string">"error"</span>, <span class="keyword">function</span>(errorEvent) &#123;</span><br><span class="line">         deferred.resolve(&#123;</span><br><span class="line">           error: errorEvent,</span><br><span class="line">           image: img</span><br><span class="line">         &#125;);</span><br><span class="line">         URL.revokeObjectURL(_url);</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;;</span><br><span class="line">     xhr.onerror = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">       var img = new Image();</span><br><span class="line">       deferred.resolve(img);</span><br><span class="line">     &#125;;</span><br><span class="line">     xhr.open(<span class="string">"GET"</span>, url, <span class="literal">true</span>);</span><br><span class="line">     xhr.responseType = <span class="string">"blob"</span>;</span><br><span class="line">     xhr.send();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h2><ul>
+<li><a href="https://caniuse.com/#feat=contentsecuritypolicy" target="_blank" rel="noopener">https://caniuse.com/#feat=contentsecuritypolicy</a></li>
+</ul>
+<p>(全文完)</p>
+<h2 id="进一步阅读"><a href="#进一步阅读" class="headerlink" title="进一步阅读"></a>进一步阅读</h2><ul>
+<li>[Web 前端攻防，一不小心就中招了] <a href="https://juejin.im/post/5912740344d904007b010252#heading-4" target="_blank" rel="noopener">https://juejin.im/post/5912740344d904007b010252#heading-4</a></li>
+<li><a href="https://www.cnblogs.com/Wayou/p/intro_to_content_security_policy.html" target="_blank" rel="noopener">https://www.cnblogs.com/Wayou/p/intro_to_content_security_policy.html</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/blog/categories/安全相关//" class="article-tag-list-link color5">安全相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/blog/2019/06/08/2019-06-08-CSP/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-2019-03-12-v-model" class="article article-type-post  article-index"
   itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -208,6 +450,171 @@
       
       <p class="article-more-link">
         <a class="article-more-a" href="/blog/2019/03/12/2019-03-12-v-model/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-2019-08-03-Concept-and-application-of-layers" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/03/12/2019-08-03-Concept-and-application-of-layers/">GIS 图层概念和总结</a>
+    </h1>
+  
+
+      <!--显示阅读次数-->
+      
+      
+      <a href="/blog/2019/03/12/2019-08-03-Concept-and-application-of-layers/" class="archive-article-date">
+  	<time datetime="2019-03-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>最近项目上遇到一个专题树，遇到打开专题的时间轴后，之前打开的图层会被关闭的bug过程是这样的，先打开<code>增城区规划导则地块</code>，然后再打开上面含有多个年份的历史图层，<code>规划导则地块</code>，这个时候<code>增城区规划导则地块</code>的图层会被关闭。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c41ea3479ecf79?w=916&amp;h=372&amp;f=png&amp;s=273669" alt></p>
+<p>经过代码定位和按行注释，发现是这段代码针对图层的关闭和显示有问题：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理默认年份的显示隐藏</span></span><br><span class="line"> <span class="keyword">var</span> layer = <span class="keyword">this</span>.defaultLayer;</span><br><span class="line"><span class="keyword">if</span> (visible) &#123;</span><br><span class="line">    <span class="string">`layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers([layerobj.layerindex])`</span>; </span><br><span class="line">    layer.setVisibility(<span class="literal">true</span>);</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">   <span class="string">`layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers([]);`</span></span><br><span class="line">    layer.setVisibility(<span class="literal">false</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为什么当前的 <code>layer</code>会把其他的图层关闭了呢？下面先理解几个概念。</p>
+<h2 id="什么是图层"><a href="#什么是图层" class="headerlink" title="什么是图层"></a>什么是图层</h2><blockquote>
+<p>图层是 ArcMap、ArcGlobe 和 ArcScene 等Arcgis 产品套件中地理数据集的显示机制。一个图层引用一个数据集，并指定如何利用符号和文本标注绘制该数据集。向地图添加图层时，要指定它的引用数据集并设定地图符号和标注属性。</p>
+</blockquote>
+<p>包含一个地图控件的每个应用程序是通过一系列图层组装的。显示以特定的顺序显示在地图上，列在最底部的显示在地图的最上面显示，也就是先添加的显示在下面显示（原理类似于“栈”）</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c42051b230f580?w=219&amp;h=198&amp;f=png&amp;s=9931" alt></p>
+<p>所有的图层都是从Layer类型继承而来的，可以参考下载的API中的对象模型图。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Layer</span><br><span class="line">  |–TiledMapServiceLayer</span><br><span class="line">  |----|–ArcGISTiledMapServiceLayer</span><br><span class="line">  |–DynamicLayer</span><br><span class="line">  |----|–DynamicMapServiceLayer</span><br><span class="line">  |----------|–ArcGISDynamicMapServiceLayer</span><br><span class="line">  |----------|–ArcGISImageServiceLayer</span><br><span class="line">  |----------|–GPResultImageLayer</span><br><span class="line">  |–GraphicsLayer</span><br><span class="line">  |----|–FeatureLayer</span><br><span class="line">  |–ElementLayer</span><br></pre></td></tr></table></figure>
+<p>而图层是怎么加载出来的呢，它是通过地图服务加载出来的。</p>
+<h2 id="图层的加载"><a href="#图层的加载" class="headerlink" title="图层的加载"></a>图层的加载</h2><h3 id="什么是地图服务"><a href="#什么是地图服务" class="headerlink" title="什么是地图服务"></a>什么是地图服务</h3><p>地图服务是一种利用 ArcGIS 使地图可通过 web 进行访问的方法。我们首先在 ArcMap 中制作地图，然后将地图发布到 ArcGIS Server 站点上。当地图服务发布成功后，我们可以通过网址（xxxx/arcgis/rest/services）来查看地图服务所支持的操作，地图服务所包含的数据，以及我们还可以通过网址来测试地图服务的功能。</p>
+<p>之后在Web 应用程序、ArcGIS for Desktop、ArcGIS Online 以及其他客户端应用程序中请求该地址使用此地图服务</p>
+<p>下面说说常见的两种图层加载模式，实例化一个图层对象，需要传入图层的 <code>url</code>。</p>
+<h3 id="切片服务"><a href="#切片服务" class="headerlink" title="切片服务"></a>切片服务</h3><blockquote>
+<p>原理：切片服务是已经通过比例尺切好地图了，如通常的底图，一般是切片服务加载的，当你通过鼠标放大底图，它会根据当前的比例尺来加载已经切好的图片，加载的方式是通过<code>export</code>接口请求已经切好的图片。</p>
+</blockquote>
+<p>由于切片服务已经切好了，所以无法通过类似<code>setVisibleLayers</code>来控制它的图层显示，只能通过<code>setVisiblity</code> 控制整个图层的显示。导出图片时，<code>export</code>会把整个当前比例的切片导出来。</p>
+<p>一个发布出来的切片如下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/31/16c46e440ac0d2f4?w=998&amp;h=777&amp;f=png&amp;s=135480" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/31/16c46e5ee3aa2349?w=757&amp;h=663&amp;f=png&amp;s=108474" alt></p>
+<p>通过<code>ArcGISTiledMapServiceLayer</code> 新建一个切片类实例，然后加载到地图中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISTiledMapServiceLayer(layerobj.url);</span><br><span class="line">map.addLayer(layer);</span><br></pre></td></tr></table></figure></p>
+<p>控制切片图层的显示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置图层显示/隐藏</span></span><br><span class="line">  layerVisibleRefreshByName: <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">var</span> serviceid = obj.serviceid;</span><br><span class="line">    <span class="keyword">var</span> layername = obj.layername;</span><br><span class="line">    <span class="keyword">var</span> layervisible = obj.layervisible;</span><br><span class="line">    <span class="comment">// 如果 serviceid 不存在时，运维赋值为 label 名称</span></span><br><span class="line">    <span class="keyword">if</span> (serviceid == <span class="keyword">this</span>.guid || serviceid == <span class="keyword">this</span>.label) &#123;</span><br><span class="line">      <span class="keyword">this</span>.setVisibility(layervisible);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，如果切片服务在发布时，勾选了可以使用动态服务加载的，那么切片服务也可以通过<code>ArcGISDynamicMapServiceLayer</code> 来加载。</p>
+<h3 id="动态服务"><a href="#动态服务" class="headerlink" title="动态服务"></a>动态服务</h3><blockquote>
+<p>原理：</p>
+</blockquote>
+<p>一个动态服务的信息如下：<br><img src="https://user-gold-cdn.xitu.io/2019/7/31/16c46e83faf65ccb?w=798&amp;h=770&amp;f=png&amp;s=119960" alt></p>
+<p>通过<code>ArcGISDynamicMapServiceLayer</code> 新建一个动态类实例，然后加载到地图中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(layerobj.url);</span><br><span class="line">map.addLayer(layer);</span><br></pre></td></tr></table></figure></p>
+<p>在我们执行<code>setVisibleLayers</code>时，会通过 <code>export</code> 方式来把对应的子图层输出图片，然后加载到地图中。<code>setVisibleLayers(-1)</code>关闭所有子图层。</p>
+<p>控制动态图片的显示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 改变图层的可见性</span></span><br><span class="line"><span class="comment">  * @param &#123;Object&#125; dlayer 服务图层</span></span><br><span class="line"><span class="comment">  * @param &#123;Number&#125; layerid 子图层 id</span></span><br><span class="line"><span class="comment">  * @param &#123;Boolean&#125; layervisible 可见性</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">changeLayerVisible: <span class="function"><span class="keyword">function</span> (<span class="params">dlayer, layerid, layervisible</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (dlayer == <span class="literal">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (layerid &lt; <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">var</span> arrc = dlayer.visibleLayers;</span><br><span class="line">    arrc = <span class="keyword">this</span>.dealWithLayerInfos(arrc, dlayer.layerInfos);</span><br><span class="line">    <span class="keyword">if</span> (arrc == <span class="literal">null</span> || (arrc.length == <span class="number">1</span> &amp;&amp; arrc[<span class="number">0</span>] == <span class="number">-1</span>)) &#123;</span><br><span class="line">        arrc = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (layervisible) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.checkLayerId(arrc, layerid)) &#123;</span><br><span class="line">            arrc.push(layerid);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.checkLayerId(arrc, layerid)) &#123;</span><br><span class="line">           arrc = <span class="keyword">this</span>.removeLayerId(arrc, layerid);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.setVisibleLayers(arrc, <span class="literal">true</span>);</span><br><span class="line">&#125;,</span><br><span class="line">checkLayerId: <span class="function"><span class="keyword">function</span> (<span class="params">arrc, layerid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arrc == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arrc.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arrc[i] == layerid) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="回归场景"><a href="#回归场景" class="headerlink" title="回归场景"></a>回归场景</h2><p>说到历史时间轴，首先要理解专题树里面的节点信息。</p>
+<h3 id="专题树"><a href="#专题树" class="headerlink" title="专题树"></a>专题树</h3><p>专题树由专题组成，每一个叶子节点都是一个专题，那么专题是什么呢？</p>
+<p><strong>专题：</strong>专题也就是一个图层服务，每一个专题<code>layer</code> 都是系统初始化时，通过动态服务或切片服务实例化后添加到地图中的，<br>每个专题图层，都有一个图层组 <code>layers</code>，这个是该专题服务下的默认显示的子图层集合，所以打开或关闭专题时，如果子图层是通过动态服务加载的，也就是关闭对应的子图层。如果是切片服务的，则是关闭整个服务对象。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c42430566eb97b?w=238&amp;h=382&amp;f=png&amp;s=37651" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c42429c8049829?w=1380&amp;h=696&amp;f=png&amp;s=282443" alt></p>
+<h3 id="历史时间轴的实现"><a href="#历史时间轴的实现" class="headerlink" title="历史时间轴的实现"></a>历史时间轴的实现</h3><p>关于历史时间轴的逻辑是这样的</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c423212cd9acc3?w=262&amp;h=395&amp;f=png&amp;s=40497" alt></p>
+<ol>
+<li>勾选某个图层，这个图层可能是一个服务图层 Layer 也可能是子图层。</li>
+<li><p>遇到带有时间轴标识的，会打开时间轴面板，初始打开默认的年份。这些图层地址是通过读取配置得来。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     <span class="attr">"type"</span>: <span class="string">"规划导则地块"</span>,</span><br><span class="line">     <span class="attr">"layers"</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">"label"</span>: <span class="string">"2019"</span>,</span><br><span class="line">         <span class="attr">"layertype"</span>: <span class="string">"dynamic"</span>,</span><br><span class="line">         <span class="attr">"layername"</span>: <span class="string">"规划导则地块"</span>,</span><br><span class="line">         <span class="attr">"layerindex"</span>: <span class="number">4</span>,</span><br><span class="line">         <span class="attr">"serviceName"</span>: <span class="string">"控制性规划导则"</span>,</span><br><span class="line">         <span class="attr">"serviceUid"</span>: <span class="string">""</span>,</span><br><span class="line">         <span class="attr">"defaultLayer"</span>: <span class="literal">true</span>,</span><br><span class="line">         <span class="attr">"url"</span>: <span class="string">"xxxxx/arcgis/rest/services/%E6%8E%A7%E5%88%B6%E6%80%A7%E8%A7%84%E5%88%92%E5%AF%BC%E5%88%99/MapServer/4"</span></span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">"label"</span>: <span class="string">"2018"</span>,</span><br><span class="line">         <span class="attr">"layertype"</span>: <span class="string">"dynamic"</span>,</span><br><span class="line">         <span class="attr">"layername"</span>: <span class="string">"规划导则地块"</span>,</span><br><span class="line">         <span class="attr">"layerindex"</span>: <span class="number">4</span>,</span><br><span class="line">         <span class="attr">"serviceName"</span>: <span class="string">"控制性规划导则"</span>,</span><br><span class="line">         <span class="attr">"serviceUid"</span>: <span class="string">""</span>,</span><br><span class="line">         <span class="attr">"defaultLayer"</span>: <span class="literal">false</span>,</span><br><span class="line">         <span class="attr">"url"</span>: <span class="string">"xxxxx/arcgis/rest/services/%E6%8E%A7%E5%88%B6%E6%80%A7%E8%A7%84%E5%88%92%E5%AF%BC%E5%88%992018/MapServer"</span></span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">"label"</span>: <span class="string">"2017"</span>,</span><br><span class="line">         <span class="attr">"layertype"</span>: <span class="string">"dynamic"</span>,</span><br><span class="line">         <span class="attr">"layername"</span>: <span class="string">"规划导则地块"</span>,</span><br><span class="line">         <span class="attr">"layerindex"</span>: <span class="number">4</span>,</span><br><span class="line">         <span class="attr">"serviceName"</span>: <span class="string">"控制性规划导则2017"</span>,</span><br><span class="line">         <span class="attr">"defaultLayer"</span>: <span class="literal">false</span>,</span><br><span class="line">         <span class="attr">"url"</span>: <span class="string">"xxxxx/arcgis/rest/services/%E6%8E%A7%E5%88%B6%E6%80%A7%E8%A7%84%E5%88%92%E5%AF%BC%E5%88%992017/MapServer"</span></span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="attr">"label"</span>: <span class="string">"2016"</span>,</span><br><span class="line">         <span class="attr">"layertype"</span>: <span class="string">"dynamic"</span>,</span><br><span class="line">         <span class="attr">"layername"</span>: <span class="string">"规划导则地块2016"</span>,</span><br><span class="line">         <span class="attr">"layerindex"</span>: <span class="number">4</span>,</span><br><span class="line">         <span class="attr">"serviceName"</span>: <span class="string">"控制性规划导则2016"</span>,</span><br><span class="line">         <span class="attr">"defaultLayer"</span>: <span class="literal">false</span>,</span><br><span class="line">         <span class="attr">"url"</span>: <span class="string">"xxxxx/arcgis/rest/services/%E6%8E%A7%E5%88%B6%E6%80%A7%E8%A7%84%E5%88%92%E5%AF%BC%E5%88%992016/MapServer"</span></span><br><span class="line">       &#125;</span><br><span class="line">     ]</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关键的切换代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * _changeLayerVisible() 改变图层的显示情况</span></span><br><span class="line"><span class="comment">    * @param &#123;Object&#125; layerobj 图层信息</span></span><br><span class="line"><span class="comment">    * @param &#123;Boolean&#125; visible 是否可见</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   _changeLayerVisible: <span class="function"><span class="keyword">function</span>(<span class="params">layerobj, visible</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.map = <span class="built_in">window</span>._map; <span class="comment">// 获取到地图</span></span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> (!layerobj) &#123;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (layerobj.label != <span class="keyword">this</span>.clashHisdata.label) &#123;</span><br><span class="line">       <span class="comment">// 隔离与默认年份相冲突的年份，把默认年份放在else中处理</span></span><br><span class="line">       <span class="keyword">var</span> layerId =</span><br><span class="line">         <span class="keyword">this</span>.defaultLayer.label + <span class="string">'_historydataservice'</span> + layerobj.label; <span class="comment">// 用于同时添加多个图层 多个图层会出现</span></span><br><span class="line">       topic.publish(<span class="string">'history-layerIds'</span>, layerId); <span class="comment">// 历史图层id传送至专题树，由专题书统一管理图层开关</span></span><br><span class="line">       <span class="keyword">this</span>.historyLayerIds.push(layerId);</span><br><span class="line">       <span class="keyword">switch</span> (layerobj.layertype) &#123;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'tiled'</span>:</span><br><span class="line">           <span class="keyword">if</span> (visible) &#123;</span><br><span class="line">             <span class="keyword">var</span> layer = <span class="keyword">this</span>.map.getLayer(layerId);</span><br><span class="line">             <span class="keyword">if</span> (layer) &#123;</span><br><span class="line">               <span class="keyword">this</span>.map.removeLayer(layer);</span><br><span class="line">               layer = <span class="keyword">new</span> ArcGISTiledMapServiceLayer(layerobj.url);</span><br><span class="line">               <span class="keyword">this</span>._currentLayer = layer;</span><br><span class="line">               layer.id = layerId;</span><br><span class="line">               <span class="keyword">this</span>.map.addLayer(layer);</span><br><span class="line">               <span class="keyword">this</span>.map.reorderLayer(layer, <span class="number">1</span>);</span><br><span class="line">               layer.setVisibility(<span class="literal">true</span>);</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               layer = <span class="keyword">new</span> ArcGISTiledMapServiceLayer(layerobj.url);</span><br><span class="line">               <span class="keyword">this</span>._currentLayer = layer;</span><br><span class="line">               layer.id = layerId;</span><br><span class="line">               <span class="keyword">this</span>.map.addLayer(layer);</span><br><span class="line">               <span class="keyword">this</span>.map.reorderLayer(layer, <span class="number">1</span>);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">this</span>._currentLayer.setOpacity(<span class="keyword">this</span>._opacity);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             <span class="keyword">var</span> layer = <span class="keyword">this</span>.map.getLayer(layerId);</span><br><span class="line">             <span class="keyword">if</span> (layer) &#123;</span><br><span class="line">               <span class="comment">//this.map.removeLayer(layer);</span></span><br><span class="line">               layer.setVisibility(<span class="literal">false</span>);</span><br><span class="line">             &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'dynamic'</span>:</span><br><span class="line">           <span class="keyword">if</span> (visible) &#123;</span><br><span class="line">             <span class="keyword">var</span> layer = <span class="keyword">this</span>.map.getLayer(layerId);</span><br><span class="line">             <span class="keyword">if</span> (layer) &#123;</span><br><span class="line">               <span class="keyword">if</span> (layer.url == layerobj.url) &#123;</span><br><span class="line">                 layer.setVisibleLayers([layerobj.layerindex]);</span><br><span class="line">                 <span class="keyword">this</span>._currentLayer = layer;</span><br><span class="line">                 layer.setVisibility(<span class="literal">true</span>);</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 <span class="keyword">this</span>.map.removeLayer(layer);</span><br><span class="line">                 layer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(layerobj.url);</span><br><span class="line">                 <span class="keyword">this</span>._currentLayer = layer;</span><br><span class="line">                 layer.id = layerId;</span><br><span class="line">                 <span class="keyword">this</span>.map.addLayer(layer);</span><br><span class="line">                 <span class="keyword">this</span>.map.reorderLayer(layer, <span class="number">1</span>);</span><br><span class="line">                 layer.setVisibleLayers([layerobj.layerindex]);</span><br><span class="line">                 layer.setVisibility(<span class="literal">true</span>);</span><br><span class="line">               &#125;</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">var</span> dlayer = <span class="keyword">new</span> ArcGISDynamicMapServiceLayer(layerobj.url);</span><br><span class="line">               <span class="keyword">this</span>._currentLayer = dlayer;</span><br><span class="line">               dlayer.id = layerId;</span><br><span class="line">               <span class="keyword">this</span>.map.addLayer(dlayer);</span><br><span class="line">               <span class="keyword">this</span>.map.reorderLayer(dlayer, <span class="number">1</span>);</span><br><span class="line">               dlayer.setVisibleLayers([layerobj.layerindex]);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">this</span>._currentLayer.setOpacity(<span class="number">1</span>);</span><br><span class="line">             setTimeout(</span><br><span class="line">               lang.hitch(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                 <span class="keyword">this</span>._currentLayer.setOpacity(<span class="keyword">this</span>._opacity);</span><br><span class="line">               &#125;),</span><br><span class="line">               <span class="number">200</span></span><br><span class="line">             );</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             <span class="keyword">var</span> layer = <span class="keyword">this</span>.map.getLayer(layerId);</span><br><span class="line">             <span class="keyword">if</span> (layer) &#123;</span><br><span class="line">               layer.setVisibleLayers([]);</span><br><span class="line">               layer.setVisibility(<span class="literal">false</span>);</span><br><span class="line">             &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="string">`// 处理默认年份的显示隐藏</span></span><br><span class="line"><span class="string">        var layer = this.defaultLayer;</span></span><br><span class="line"><span class="string">       if (visible) &#123;</span></span><br><span class="line"><span class="string">           layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers([layerobj.layerindex])`</span>; </span><br><span class="line">           layer.setVisibility(<span class="literal">true</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="comment">// 关闭</span></span><br><span class="line">          layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers([]);</span><br><span class="line">           layer.setVisibility(<span class="literal">false</span>); </span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="找出图层被关闭的原因"><a href="#找出图层被关闭的原因" class="headerlink" title="找出图层被关闭的原因"></a>找出图层被关闭的原因</h3><p><strong>Layer:</strong> 一个图层服务包含了很多子图层</p>
+<p>这个是历史面板初始化时的操作。<br>时间轴打开后，通过<code>serviceid</code>去获取添加到地图中的当前 <code>layer</code> 对象。<br>从专题信息中，获取到当前专题里面的图层，默认显示的子图层。<br>再通过它的<code>serviceUid</code> 获取到加载到地图中的父图层(专题)。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c423c7c5920536?w=1062&amp;h=620&amp;f=png&amp;s=221105" alt></p>
+<p>图层关闭由 <code>setVisibility(isVisible)</code> 和 <code>setVisibleLayers(ids, doNotRefresh?)</code> 组合控制，由切片服务生成的图层只有 <code>setVisibility</code> 属性，动态服务生成的图层则由两者组合控制图层的显示。如图，<code>setVisibility</code> 控制整个图层的显示，而 <code>setVisibleLayers</code> 可以更加细粒度地控制图层里面的子图层。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/30/16c4225df9cac6a3?w=1052&amp;h=864&amp;f=png&amp;s=69101" alt></p>
+<p>再看看之前的代码实现，通过断点发现，默认图层 <code>layer</code> 的子图层包含了<code>增城导则地块图层</code>，因此在打开默认图层的某个子图层时，这行代码<code>layer.setVisibleLayers([layerobj.layerindex])</code>只赋值了当前子图层的索引id，导致把之前的子图层都关闭了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理默认年份的显示隐藏</span></span><br><span class="line"> <span class="keyword">var</span> layer = <span class="keyword">this</span>.defaultLayer;</span><br><span class="line"><span class="keyword">if</span> (visible) &#123;</span><br><span class="line">    <span class="string">`layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers([layerobj.layerindex])`</span>; </span><br><span class="line">    layer.setVisibility(<span class="literal">true</span>);</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 关闭</span></span><br><span class="line">   <span class="string">`layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers([]);`</span></span><br><span class="line">    layer.setVisibility(<span class="literal">false</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这时候只需要添加对应的图层服务类型判断逻辑，缓存之前的就可以了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 处理默认年份的显示隐藏</span></span><br><span class="line"><span class="keyword">var</span> layer = <span class="keyword">this</span>.defaultLayer;</span><br><span class="line"><span class="string">``</span><span class="string">`var visibleLayers = []; // 可见的图层</span></span><br><span class="line"><span class="string">visibleLayers = visibleLayers.concat(layer.visibleLayers);</span></span><br></pre></td></tr></table></figure></p>
+<p> if (visible) {<br>    // 打开<br>    var index = visibleLayers.indexOf(layerobj.layerindex);<br>    if (index === -1 &amp;&amp; layerobj.layertype !== ‘tiled’) {<br>        visibleLayers.push(layerobj.layerindex); // 添加新的图层索引进去，否则传递 -1 会关闭所有图层<br>        layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers(visibleLayers); // 注意区分tiled和dynamic<br>    }<br>    layer.setVisibility(true);<br> } else {<br>    // 满足：<br>    // 1. 需要解决时间轴后面的Layer 被默认的 Layer覆盖问题，<br>    // 2. 但是不能把整个 Layer 关闭了，否则，会影响属于同一个图层服务实例下，其他子图层的显示。<br>    // 3. 当前只能把后面的图层移动 z-index，但是又要满足时间轴的图层作为底图来使用。<br>    <code>if (layerobj.layertype === &#39;tiled&#39;) {
+        // 判断是否为切片
+        layer.setVisibility(false);
+    } else {
+        // 动态图片服务的关闭
+        // 关闭
+        var index = visibleLayers.indexOf(layerobj.layerindex);
+        if (index &gt; -1) {
+            visibleLayers.splice(index, 1);
+        }
+        layer.setVisibleLayers &amp;&amp; layer.setVisibleLayers(visibleLayers);
+    }</code><br>  }<br>}<br><code>`</code><br>当然，上面的默认图层的显示/隐藏，可以直接把图层对象传递给专题树来统一处理开关，这样就不用写这些判断逻辑了。</p>
+<blockquote>
+<p>(全文完) </p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>关键是理解图层的概念以及它们是怎么加载的，这样遇到控制图层的问题时就能快速定位解决了。</li>
+<li>目前的 <code>arcgis api</code> 是经过优化的，只有地图范围改变了，才会去请求地图服务。所以在切换时间轴时，要注意改变它的范围，才能更好的定位错误。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://desktop.arcgis.com/zh-cn/arcmap/10.3/map/working-with-layers/what-is-a-layer-.htm" target="_blank" rel="noopener">ArcMap 使用图层</a></li>
+<li><a href="https://blog.csdn.net/LoveCarpenter/article/details/52205093#1_1" target="_blank" rel="noopener">ArcGIS Server 之发布动态地图服务</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">layer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/blog/categories/GIS-相关//" class="article-tag-list-link color2">GIS 相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/blog/2019/03/12/2019-08-03-Concept-and-application-of-layers/">
           展开全文 >></a>
       </p>
       
@@ -755,7 +1162,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <p><img src="http://p1s28g7i1.bkt.clouddn.com/onepiece_route.png" alt=""><br>如图，用户点击链接的过程，就像是路飞发出一个请求 URL，要去女帝的国家，至于如何到达，路飞不用管，交给娜美处理就好（这里娜美制定各种航线，到达目的地）。在浏览一个网站时，我们可以通过当前点击各种超链接，从而浏览不同的页面内容，在这其中发生的过程是：</p>
+      <p><img src="http://p1s28g7i1.bkt.clouddn.com/onepiece_route.png" alt><br>如图，用户点击链接的过程，就像是路飞发出一个请求 URL，要去女帝的国家，至于如何到达，路飞不用管，交给娜美处理就好（这里娜美制定各种航线，到达目的地）。在浏览一个网站时，我们可以通过当前点击各种超链接，从而浏览不同的页面内容，在这其中发生的过程是：</p>
 <ol>
 <li>点击一个链接，改变当前网站的 URL ，通过浏览器发送请求；</li>
 <li>服务端接收请求，处理解析 URL 路径；</li>
@@ -830,285 +1237,10 @@
 
 
   
-    <article id="post-2017-12-10-Local-Storage-And-How-To-Use-It-On-Website" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/12/10/2017-12-10-Local-Storage-And-How-To-Use-It-On-Website/">使用HTML5 localStorage实现本地存储</a>
-    </h1>
-  
-
-      <!--显示阅读次数-->
-      
-      
-      <a href="/blog/2017/12/10/2017-12-10-Local-Storage-And-How-To-Use-It-On-Website/" class="archive-article-date">
-  	<time datetime="2017-12-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
-</a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <p>在用户计算机上本地存储信息对于网站开发人与来说是一个强大的策略。在本文中，我们将可以学到了 localStorage 在计算机上存储信息是多么地容易，并解释了它的应用。</p>
-      
-      <a class="article-more-a" href="/blog/2017/12/10/2017-12-10-Local-Storage-And-How-To-Use-It-On-Website/#more">
-        more >></a>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/译文//" class="article-tag-list-link color3">译文</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/blog/2017/12/10/2017-12-10-Local-Storage-And-How-To-Use-It-On-Website/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-2018-04-30-Build-A-Personal-Blog-quickly-Using-Github" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/12/10/2018-04-30-Build-A-Personal-Blog-quickly-Using-Github/">使用 github 快速构建个人博客</a>
-    </h1>
-  
-
-      <!--显示阅读次数-->
-      
-      
-      <a href="/blog/2017/12/10/2018-04-30-Build-A-Personal-Blog-quickly-Using-Github/" class="archive-article-date">
-  	<time datetime="2017-12-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
-</a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <p>通常，在我们做一个项目，难免会踩不少坑，把它们记录下来好处多多。可以方便日后遇到同一个问题时，能够快速回顾之前的解决思路，不用再从头摸索，毕竟时间就是金钱。除了使用博客园、CSDN 等外，我们还想构建自己的博客，它让我们有一个属于自己的家园。好啦，blablabla，下面开始实现：</p>
-      
-      <a class="article-more-a" href="/blog/2017/12/10/2018-04-30-Build-A-Personal-Blog-quickly-Using-Github/#more">
-        more >></a>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/web-综合//" class="article-tag-list-link color2">web 综合</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/blog/2017/12/10/2018-04-30-Build-A-Personal-Blog-quickly-Using-Github/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-2017-08-07-Flexbox" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/08/07/2017-08-07-Flexbox/">Flexbox 布局</a>
-    </h1>
-  
-
-      <!--显示阅读次数-->
-      
-      
-      <a href="/blog/2017/08/07/2017-08-07-Flexbox/" class="archive-article-date">
-  	<time datetime="2017-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>刚开始接触 flex 布局的时候，只知道它可以用来使子元素水平垂直居中，代码最为简洁好用。</p>
-<pre><code>.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-</code></pre><p>当然不仅仅是居中问题，flexbox 能做的事情大多，能够简单快速解决我们布局所遇到的问题，例如：</p>
-      
-      <a class="article-more-a" href="/blog/2017/08/07/2017-08-07-Flexbox/#more">
-        more >></a>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">弹性布局</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/css-相关//" class="article-tag-list-link color2">css 相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/blog/2017/08/07/2017-08-07-Flexbox/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1250,6 +1382,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">layer</a>
               </li>
              
               <li class="article-tag-list-item">
